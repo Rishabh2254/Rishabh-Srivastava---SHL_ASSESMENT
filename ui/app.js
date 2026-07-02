@@ -1,4 +1,4 @@
-﻿const state = {
+const state = {
   sessions: [],
   activeSessionId: null,
   messages: [],
@@ -24,7 +24,7 @@ const elements = {
   closeDialogButton: document.getElementById("closeDialogButton"),
 };
 
-const API_BASE_URL = "http://127.0.0.1:8000";
+const API_BASE_URL = "https://rishabh-srivastava-shl-assesment.onrender.com";
 const STORAGE_KEY = "shl_chat_sessions_v1";
 
 function escapeHtml(value) {
