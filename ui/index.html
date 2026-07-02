@@ -1,0 +1,80 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SHL Assessment Recommender UI</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <h1>SHL Assessment Recommender</h1>
+        <div class="sidebar-section">
+          <h2>Chat History</h2>
+          <div id="chatHistoryList" class="chat-history-list"></div>
+        </div>
+
+        <div class="sidebar-section">
+          <h2>Controls</h2>
+          <button id="newChatButton" class="secondary-button" type="button">New chat</button>
+        </div>
+      </aside>
+
+      <main class="chat-panel">
+        <header class="chat-header">
+          <div>
+            <p class="eyebrow">Conversational Demo</p>
+            <h2>Assessment recommendation assistant</h2>
+          </div>
+          <span id="statusBadge" class="status-badge status-idle">Ready</span>
+        </header>
+
+        <section id="messages" class="messages"></section>
+
+        <section id="recommendationsPanel" class="recommendations-panel hidden">
+          <div class="recommendations-header">
+            <h3>Recommendations</h3>
+            <p>Click any recommendation to view mapped assessment details.</p>
+          </div>
+          <div id="recommendationsList" class="recommendations-list"></div>
+        </section>
+
+        <form id="composer" class="composer">
+          <textarea
+            id="messageInput"
+            class="composer-input"
+            rows="3"
+            placeholder="Describe the role, skills, level, and any constraints..."
+            required
+          ></textarea>
+          <div class="composer-actions">
+            <span class="composer-hint">Press Enter to send, Shift+Enter for a new line</span>
+            <button id="sendButton" type="submit" class="primary-button">Send</button>
+          </div>
+        </form>
+      </main>
+    </div>
+
+    <template id="messageTemplate">
+      <article class="message">
+        <div class="message-role"></div>
+        <div class="message-bubble"></div>
+      </article>
+    </template>
+
+    <dialog id="assessmentDialog" class="assessment-dialog">
+      <div class="assessment-dialog-header">
+        <h3 id="dialogTitle"></h3>
+        <button id="closeDialogButton" class="secondary-button" type="button">Close</button>
+      </div>
+      <div id="dialogBody" class="assessment-dialog-body"></div>
+      <p class="dialog-note">
+        Note: SHL currently redirects many legacy product URLs to broader landing pages. The details shown here are mapped
+        from your local SHL catalog dataset.
+      </p>
+    </dialog>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
