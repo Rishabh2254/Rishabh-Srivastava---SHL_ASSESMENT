@@ -19,6 +19,5 @@ RUN python scripts/build_index.py || true
 
 EXPOSE 8000
 
-RUN chmod +x scripts/start.sh
-
-CMD ["sh", "scripts/start.sh"]
+# Render injects PORT at runtime; bind to 0.0.0.0 on that port.
+CMD ["/bin/sh", "-c", "exec uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}"]
